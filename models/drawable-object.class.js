@@ -14,7 +14,8 @@ export class DrawableObject{
         this.yPos = _yPos;
         this.width = _width;
         this.height = _height;
-        this.img = _img;
+        // this.img = _img;
+        this.loadImage(_img);
     }
 
     // #region METHODS

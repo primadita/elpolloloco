@@ -1,30 +1,47 @@
 import { Character } from "./character.class.js";
 import { Chicken } from "./chicken.class.js";
 import { Hen } from "./hen.class.js";
+import { Henboss } from "./henboss.class.js";
 import { ImageManager } from "./image-manager.class.js";
+// import { Sky } from "./sky.class.js";
 
 export class World{
     // #region ATTRIBUTES
     canvas;
     ctx;
     character = new Character();
-    chickens = [new Chicken(), new Chicken(), new Chicken()]
-    hens = [new Hen(), new Hen(), new Hen()];
-    henboss;
+    enemies = [new Hen(), new Hen(), new Hen(), new Chicken(), new Chicken(), new Henboss()];
+    backgrounds;
     coins;
     bottles;
     
     // #endregion
     
     constructor(canvas){
-        this.canvas = document.getElementById('canvas');
+        this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
+        this.character;
+        this.enemies;
+        this.draw();
+        // this.addBackgrounds();
+        // this.chickens;
     }
 
     // #region METHODS
     draw(){
-        // this.ctx.drawImage(ImageManager.pepe, this.character.xPos, this.character.yPos, this.character.width, this.character.height);
-        this.ctx.drawImage(ImageManager.pepe[0], 100, 250, 100,200);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.drawImage(this.character.img, this.character.xPos, this.character.yPos, this.character.width, this.character.height);
+        this.enemies.forEach(enemy => {
+            this.ctx.drawImage(enemy.img, enemy.xPos, enemy.yPos, enemy.width, enemy.height);
+        });
+        requestAnimationFrame(() => this.draw());
     }
+
+    // addBackgrounds(){
+    //     this.backgrounds = [
+    //         new Sky(this.canvas),
+    //         new Sky(this.canvas)
+    //     ]
+    // }
     // #endregion
 }

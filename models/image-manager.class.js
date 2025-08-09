@@ -1,5 +1,5 @@
 export class ImageManager{
-    static pepe = {
+    static PEPE = {
         idle : [
             './assets/img/2_character_pepe/1_idle/idle/I-1.png',
             './assets/img/2_character_pepe/1_idle/idle/I-2.png',
@@ -58,7 +58,7 @@ export class ImageManager{
             './assets/img/2_character_pepe/5_dead/D-57.png'
         ]
     }
-    static hen = {
+    static HEN = {
         walk : [
             './assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
             './assets/img/3_enemies_chicken/chicken_normal/1_walk/2_w.png',
@@ -66,7 +66,7 @@ export class ImageManager{
         ],
         dead : './assets/img/3_enemies_chicken/chicken_normal/2_dead/dead.png'
     }
-    static chicken = {
+    static CHICKEN = {
         walk : [
             './assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png',
             './assets/img/3_enemies_chicken/chicken_small/1_walk/2_w.png',
@@ -74,7 +74,7 @@ export class ImageManager{
         ],
         dead : './assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png'
     }
-    static henBoss = {
+    static HENBOSS = {
         walk : [
             './assets/img/4_enemie_boss_chicken/1_walk/G1.png',
             './assets/img/4_enemie_boss_chicken/1_walk/G2.png',
@@ -112,7 +112,7 @@ export class ImageManager{
             './assets/img/4_enemie_boss_chicken/5_dead/G26.png'
         ]
     }
-    static background = {
+    static BACKGROUND = {
         firstLayer : [
             './assets/img/5_background/layers/1_first_layer/1.png',
             './assets/img/5_background/layers/1_first_layer/2.png'
@@ -131,7 +131,7 @@ export class ImageManager{
         ],
         air : './assets/img/5_background/layers/air.png'
     }
-    static bottle = {
+    static BOTTLE = {
         onGround : [
             './assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png',
             './assets/img/6_salsa_bottle/2_salsa_bottle_on_ground.png'
@@ -151,11 +151,11 @@ export class ImageManager{
             './assets/img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
         ]
     }
-    static coin = [
+    static COIN = [
         './assets/img/8_coin/coin_1.png',
         './assets/img/8_coin/coin_2.png'
     ]
-    static statusbar = {
+    static STATUSBAR = {
         coinBar : [
             './assets/img/7_statusbars/1_statusbar/1_statusbar_coin/blue/0.png',
             './assets/img/7_statusbars/1_statusbar/1_statusbar_coin/blue/20.png',
