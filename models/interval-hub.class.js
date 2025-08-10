@@ -1,17 +1,17 @@
 export class IntervalHub{
     // #region ATTRIBUTES
-    static allIntervals= [];
+    static ALLINTERVALS= [];
     // #endregion
 
     // #region METHODS
     static startInterval(func, timer){
         const newInterval = setInterval(func, timer);
-        IntervalHub.allIntervals.push(newInterval);
+        IntervalHub.ALLINTERVALS.push(newInterval);
     }
 
     static stopAllIntervals(){
-        IntervalHub.allIntervals.forEach(clearInterval);
-        IntervalHub.allIntervals = [];
+        IntervalHub.ALLINTERVALS.forEach(clearInterval);
+        IntervalHub.ALLINTERVALS = [];
     }
     // #endregion
 }
