@@ -6,7 +6,7 @@ export class Henboss extends MovableObject{
     // #endregion
 
     constructor(){
-        super({_xPos: 200, _yPos: 300, _width: 120, _height: 120, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0})
+        super({_xPos: 200, _yPos: 305, _width: 120, _height: 120, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0})
     }
 
     // #region METHODS
