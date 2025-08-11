@@ -4,6 +4,7 @@ export class MovableObject extends DrawableObject{
     // #region ATTRIBUTES
     xSpeed = 0.15;
     ySpeed;
+    otherDirection = false;
     // #endregion
     
     constructor({_xPos, _yPos, _width, _height, _img, _imgarray, _xSpeed, _ySpeed}={}){
@@ -25,12 +26,14 @@ export class MovableObject extends DrawableObject{
         this.currentImage++;
     }
     
-    moveRight(){
-
+    moveRight = () => {
+        this.xPos += this.xSpeed;
     }
 
     moveLeft = () => {
         this.xPos -= this.xSpeed;
     }
+
+    
     // #endregion
 }

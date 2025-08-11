@@ -4,6 +4,7 @@ import { MovableObject } from "./movable-object.class.js";
 
 export class Character extends MovableObject{
     // #region ATTRIBUTES
+    world;
     // #endregion
     
     constructor({}={}){
@@ -11,12 +12,24 @@ export class Character extends MovableObject{
         this.currentImage = 0;
         this.imageCache = {};
         this.loadImages(ImageManager.PEPE.walk);
-        IntervalHub.startInterval(this.walk.bind(this), 200);
+        IntervalHub.startInterval(this.walk.bind(this), 1000/60);
     }
 
     // #region METHODS
     walk(){
-        super.walk(ImageManager.PEPE.walk);
+        if(this.world.keyboard.RIGHT){
+            this.otherDirection = false;
+            super.walk(ImageManager.PEPE.walk);
+            this.moveRight();
+            
+        }
+
+        if(this.world.keyboard.LEFT){
+            this.otherDirection = true;
+            super.walk(ImageManager.PEPE.walk);
+            this.moveLeft();
+            
+        }
     }
 
     jump(){
