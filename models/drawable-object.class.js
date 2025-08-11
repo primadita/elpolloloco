@@ -22,5 +22,17 @@ export class DrawableObject{
         this.img = new Image();
         this.img.src = path;
     }
+
+    /**
+     * Loads multiple images and caches them.
+     * @param {string[]} patharray - An array of image file paths to load and cache.
+     */
+    loadImages(patharray){
+        patharray.forEach((path) => {
+            let images = new Image();
+            images.src = path;
+            this.imageCache[path] = images;
+        });
+    }
     // #endregion
 }

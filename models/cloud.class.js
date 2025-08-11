@@ -9,11 +9,9 @@ export class Cloud extends MovableObject{
     constructor(){
         super({_xPos: 10, _yPos: 10, _width: 555, _height: 300, _img: ImageManager.BACKGROUND.clouds[0], _xSpeed: 0.03, _ySpeed: 0})
         this.randomizeStartPoint(100);
-        IntervalHub.startInterval(this.cloudMotion, 1000 / 60);
+        IntervalHub.startInterval(this.moveLeft, 1000 / 60);
     }
     // #region METHODS
-    cloudMotion = () => {
-        this.xPos -= this.xSpeed;
-    }
+    
     // #endregion
 }
