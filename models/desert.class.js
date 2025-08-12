@@ -1,25 +1,52 @@
-import { DrawableObject } from "./drawable-object.class.js";
 import { ImageManager } from "./image-manager.class.js";
+import { Background } from "./background.class.js";
+import { DrawableObject } from "./drawable-object.class.js";
 
-export class Desert extends DrawableObject {
+export class Desert extends Background{
     // #region ATTRIBUTES
-    // static PATHINDEX = 0;
-    // static DESERTPATH;
+    static XPOS = 0;
+    static INDEX = 0; 
+    layerimages;
     // #endregion
 
-    constructor(layerImagePath){
-        super({_xPos: 0, _yPos: 0, _width: canvas.width, _height: canvas.height, _img: layerImagePath});
+    constructor(index){
+        super({_img: ImageManager.BACKGROUND.firstLayer[index], _xPos: Desert.XPOS});
+        this.loadImages(ImageManager.BACKGROUND.firstLayer);
+        Desert.INDEX++;
+        Desert.generateNewXPos(canvas.width);
     }
-    // constructor(){
-    //     super({_xPos, _yPos, _width, _height, _img})
-    //     Desert.PATHINDEX++;
-    //     Desert.changeVersion();
-    // }
+
 
     // #region METHODS
-    // static changeVersion(){
-    //     Desert.DESERTPATH = ImageManager.BACKGROUND.thirdLayer.PATHINDEX;
-    // }
+    static generateNewXPos(val){
+        Desert.XPOS += val;
+    }
     // #endregion
 
 }
+
+// export class DesertFirstLayer extends Desert{
+//     constructor(index){
+//         super({layer: ImageManager.BACKGROUND.firstLayer, index});
+//     }
+// }
+
+// export class DesertSecondLayer extends Desert{
+//     constructor(index){
+//         super({layer: ImageManager.BACKGROUND.secondLayer, index});
+//     }
+// }
+
+// export class DesertThirdLayer extends Desert{
+//     constructor(index){
+//         super({layer: ImageManager.BACKGROUND.secondLayer, index});
+//     }
+// }
+
+// const desert = [new DesertFirstLayer(0),
+//     new DesertFirstLayer(1),
+//     new DesertSecondLayer(0),
+//     new DesertSecondLayer(1),
+//     new DesertThirdLayer(0),
+//     new DesertThirdLayer(1)
+// ]

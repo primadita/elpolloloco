@@ -20,16 +20,15 @@ export class Character extends MovableObject{
         if(this.world.keyboard.RIGHT){
             this.otherDirection = false;
             super.walk(ImageManager.PEPE.walk);
-            this.moveRight();
-            
+            this.moveRight();    
         }
 
         if(this.world.keyboard.LEFT){
             this.otherDirection = true;
             super.walk(ImageManager.PEPE.walk);
             this.moveLeft();
-            
         }
+        this.world.cameraXDir = -this.xPos ;
     }
 
     jump(){

@@ -2,9 +2,9 @@ import { Background } from "./background.class.js";
 import { DrawableObject } from "./drawable-object.class.js";
 import { ImageManager } from "./image-manager.class.js";
 
-export class Sky extends DrawableObject{
+export class Sky extends Background{
     // #region ATTRIBUTES
-    // static xPOS = 0;
+    static XPOS = 0;
     // #endregion
 
     // constructor(canvas){
@@ -12,12 +12,13 @@ export class Sky extends DrawableObject{
     //     Sky.generateNewXPos(canvas.width);
     // }
     constructor(){
-        super({_xPos: 0, _yPos: 0, _width: canvas.width, _height: canvas.height, _img: ImageManager.BACKGROUND.air});
+        super({_img: ImageManager.BACKGROUND.air, _xPos: Sky.XPOS});
+        Sky.generateNewXPos(canvas.width);
     }
 
     // #region METHODS
-    // static generateNewXPos(val){
-    //     Sky.xPos += val;
-    // }
+    static generateNewXPos(val){
+        Sky.XPOS += val;
+    }
     // #endregion
 }

@@ -1,4 +1,5 @@
 import { DrawableObject } from "./drawable-object.class.js";
+import { IntervalHub } from "./interval-hub.class.js";
 
 export class MovableObject extends DrawableObject{
     // #region ATTRIBUTES
@@ -8,7 +9,7 @@ export class MovableObject extends DrawableObject{
     // #endregion
     
     constructor({_xPos, _yPos, _width, _height, _img, _imgarray, _xSpeed, _ySpeed}={}){
-        super({_xPos, _yPos, _width, _height, _img, _imgarray});
+        super({_xPos, _yPos, _width, _height, _img});
         this.xSpeed = _xSpeed;
         this.ySpeed = _ySpeed;
         // this.moveLeft();
