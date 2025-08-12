@@ -4,7 +4,7 @@ import { DrawableObject } from "./drawable-object.class.js";
 
 export class Desert extends Background{
     // #region ATTRIBUTES
-    static XPOS = 0;
+    static XPOS = -300;
     static INDEX = 0; 
     layerimages;
     // #endregion

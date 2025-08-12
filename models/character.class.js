@@ -17,18 +17,18 @@ export class Character extends MovableObject{
 
     // #region METHODS
     walk(){
-        if(this.world.keyboard.RIGHT){
+        if(this.world.keyboard.RIGHT && this.xPos < this.world.level.levelEndPos){
             this.otherDirection = false;
             super.walk(ImageManager.PEPE.walk);
             this.moveRight();    
         }
 
-        if(this.world.keyboard.LEFT){
+        if(this.world.keyboard.LEFT && this.xPos > -100){
             this.otherDirection = true;
             super.walk(ImageManager.PEPE.walk);
             this.moveLeft();
         }
-        this.world.cameraXDir = -this.xPos ;
+        this.world.cameraXDir = -this.xPos + this.width;
     }
 
     jump(){

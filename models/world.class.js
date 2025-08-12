@@ -1,3 +1,4 @@
+import { level1 } from "../levels/level1.js";
 import { Background } from "./background.class.js";
 import { Character } from "./character.class.js";
 import { Chicken } from "./chicken.class.js";
@@ -8,28 +9,26 @@ import { Henboss } from "./henboss.class.js";
 import { ImageManager } from "./image-manager.class.js";
 import { Sky } from "./sky.class.js";
 
+
 export class World{
     // #region ATTRIBUTES
     canvas;
     ctx;
     character = new Character();
-    enemies = [new Hen(), new Hen(), new Hen(), new Chicken(), new Chicken(), new Henboss()];
+    level = level1;
+    // enemies = level1.enemies;
     // backgrounds = [new Sky(),new Cloud(), new Cloud(), new Desert(ImageManager.BACKGROUND.thirdLayer[0]), new Desert(ImageManager.BACKGROUND.secondLayer[0]),
     //         new Desert(ImageManager.BACKGROUND.firstLayer[0])]; //funktioniert
-    clouds = [new Cloud(), new Cloud()];
+    // clouds = level1.clouds;
+    // clouds;
     // backgrounds = [
     //     new Background({_img: ImageManager.BACKGROUND.air, _xPos: 0}),
     //     new Background({_img: ImageManager.BACKGROUND.thirdLayer[0], _xPos: 0}), 
     //     new Background({_img: ImageManager.BACKGROUND.secondLayer[0], _xPos: 0}),
     //     new Background({_img: ImageManager.BACKGROUND.firstLayer[0], _xPos: 0})
     //     ];
-    backgrounds = [
-        new Sky(),
-        new Sky(),
-        new Desert(0),
-        new Desert(1)
-        // new Desert(ImageManager.BACKGROUND.secondLayer[0])
-    ];
+    // backgrounds = level1.backgrounds;
+    // backgrounds;
     coins;
     bottles;
     keyboard;
@@ -54,10 +53,10 @@ export class World{
     draw(){
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.cameraXDir, 0);
-        this.drawElements(this.backgrounds);
-        this.drawElements(this.clouds);
+        this.drawElements(this.level.backgrounds);
+        this.drawElements(this.level.clouds);
         this.drawElement(this.character);
-        this.drawElements(this.enemies);
+        this.drawElements(this.level.enemies);
         this.ctx.translate(-this.cameraXDir, 0);
         
         requestAnimationFrame(() => this.draw());

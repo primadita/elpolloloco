@@ -4,7 +4,7 @@ import { ImageManager } from "./image-manager.class.js";
 
 export class Sky extends Background{
     // #region ATTRIBUTES
-    static XPOS = 0;
+    static XPOS = -300;
     // #endregion
 
     // constructor(canvas){

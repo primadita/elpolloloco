@@ -7,14 +7,14 @@ export class Henboss extends MovableObject{
     // #endregion
 
     constructor(){
-        super({_xPos: 200, _yPos: 305, _width: 120, _height: 120, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0});
-        this.loadImages(ImageManager.HENBOSS.walk);
+        super({_xPos: 1600, _yPos: 45, _width: 250, _height: 400, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0});
+        this.loadImages(ImageManager.HENBOSS.angry);
         IntervalHub.startInterval(this.walk.bind(this), 450);
     }
 
     // #region METHODS
     walk(){
-        super.walk(ImageManager.HENBOSS.walk);
+        super.walk(ImageManager.HENBOSS.angry);
     }
     // #endregion
 }
