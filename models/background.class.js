@@ -10,11 +10,11 @@ export class Background extends DrawableObject{
     //         new Desert(ImageManager.BACKGROUND.firstLayer[0])
     //     ];
     // sky;
-    static XPOS = 0;
+    static XPOS = -300;
     // #endregion
     
-    constructor({_img, _xPos} = {}){
-        super({_xPos, _yPos: 0, _width: canvas.width, _height: canvas.height, _img});
+    constructor({_img, _xPos, _width} = {}){
+        super({_xPos, _yPos: 0, _width, _height: canvas.height, _img});
         // Background.generateNewXPos(canvas.width);
         // this.addBackgrounds(this.deserts);
     }

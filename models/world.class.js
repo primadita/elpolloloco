@@ -3,7 +3,7 @@ import { Background } from "./background.class.js";
 import { Character } from "./character.class.js";
 import { Chicken } from "./chicken.class.js";
 import { Cloud } from "./cloud.class.js";
-import { Desert } from "./desert.class.js";
+import { LayerOne, LayerThree, LayerTwo } from "./desert.class.js";
 import { Hen } from "./hen.class.js";
 import { Henboss } from "./henboss.class.js";
 import { ImageManager } from "./image-manager.class.js";

@@ -12,7 +12,7 @@ export class Sky extends Background{
     //     Sky.generateNewXPos(canvas.width);
     // }
     constructor(){
-        super({_img: ImageManager.BACKGROUND.air, _xPos: Sky.XPOS});
+        super({_img: ImageManager.BACKGROUND.air, _xPos: Sky.XPOS, _width: canvas.width});
         Sky.generateNewXPos(canvas.width);
     }
 
