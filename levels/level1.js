@@ -9,5 +9,7 @@ import { Sky } from "../models/sky.class.js";
 export const level1 = new Level({
     _clouds: [new Cloud(canvas), new Cloud(canvas), new Cloud(canvas), new Cloud(canvas)],
     _enemies: [new Hen(), new Hen(), new Hen(), new Chicken(), new Chicken(), new Henboss()],
-    _bg: [new Sky(), new Sky(), new Sky(), new LayerThree(), new LayerTwo(), new LayerOne(), new LayerThree(), new LayerTwo(), new LayerOne()]
+    _bg: [new Sky(), new Sky(), new Sky(), 
+        new LayerThree(), new LayerTwo(), new LayerOne(), 
+        new LayerThree(), new LayerTwo(), new LayerOne()]
 })

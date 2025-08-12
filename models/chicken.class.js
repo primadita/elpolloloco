@@ -17,7 +17,7 @@ export class Chicken extends MovableObject{
 
     // #region METHODS
     walk(){
-        super.walk(ImageManager.CHICKEN.walk);
+        super.playAnimation(ImageManager.CHICKEN.walk);
     }
     
     randomizedXSpeed(){

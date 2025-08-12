@@ -14,7 +14,7 @@ export class Henboss extends MovableObject{
 
     // #region METHODS
     walk(){
-        super.walk(ImageManager.HENBOSS.angry);
+        super.playAnimation(ImageManager.HENBOSS.angry);
     }
     // #endregion
 }

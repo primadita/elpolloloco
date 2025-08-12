@@ -1,13 +1,13 @@
 import { level1 } from "../levels/level1.js";
-import { Background } from "./background.class.js";
+// import { Background } from "./background.class.js";
 import { Character } from "./character.class.js";
-import { Chicken } from "./chicken.class.js";
-import { Cloud } from "./cloud.class.js";
-import { LayerOne, LayerThree, LayerTwo } from "./desert.class.js";
-import { Hen } from "./hen.class.js";
-import { Henboss } from "./henboss.class.js";
-import { ImageManager } from "./image-manager.class.js";
-import { Sky } from "./sky.class.js";
+// import { Chicken } from "./chicken.class.js";
+// import { Cloud } from "./cloud.class.js";
+// import { LayerOne, LayerThree, LayerTwo } from "./desert.class.js";
+// import { Hen } from "./hen.class.js";
+// import { Henboss } from "./henboss.class.js";
+// import { ImageManager } from "./image-manager.class.js";
+// import { Sky } from "./sky.class.js";
 
 
 export class World{
@@ -16,37 +16,19 @@ export class World{
     ctx;
     character = new Character();
     level = level1;
-    // enemies = level1.enemies;
-    // backgrounds = [new Sky(),new Cloud(), new Cloud(), new Desert(ImageManager.BACKGROUND.thirdLayer[0]), new Desert(ImageManager.BACKGROUND.secondLayer[0]),
-    //         new Desert(ImageManager.BACKGROUND.firstLayer[0])]; //funktioniert
-    // clouds = level1.clouds;
-    // clouds;
-    // backgrounds = [
-    //     new Background({_img: ImageManager.BACKGROUND.air, _xPos: 0}),
-    //     new Background({_img: ImageManager.BACKGROUND.thirdLayer[0], _xPos: 0}), 
-    //     new Background({_img: ImageManager.BACKGROUND.secondLayer[0], _xPos: 0}),
-    //     new Background({_img: ImageManager.BACKGROUND.firstLayer[0], _xPos: 0})
-    //     ];
-    // backgrounds = level1.backgrounds;
-    // backgrounds;
     coins;
     bottles;
     keyboard;
     cameraXDir = 0;
-    
     // #endregion
     
     constructor(canvas, keyboard){
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.backgrounds;
         this.character;
-        this.enemies;
         this.draw();
         this.keyboard = keyboard;
         this.setWorld();
-        // this.addBackgrounds();
-        // this.chickens;
     }
 
     // #region METHODS

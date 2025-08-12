@@ -5,34 +5,51 @@ import { MovableObject } from "./movable-object.class.js";
 export class Character extends MovableObject{
     // #region ATTRIBUTES
     world;
+    // acceleration = -10;
     // #endregion
     
     constructor({}={}){
-        super({_xPos: 50, _yPos: 85, _width: 160, _height: 350, _img: ImageManager.PEPE.walk[0], _xSpeed: 10, _ySpeed: 10});
+        super({_xPos: 50, _yPos: 5, _width: 160, _height: 350, _img: ImageManager.PEPE.walk[0], _xSpeed: 10, _ySpeed: 5});
         this.currentImage = 0;
         this.imageCache = {};
         this.loadImages(ImageManager.PEPE.walk);
-        IntervalHub.startInterval(this.walk.bind(this), 1000/60);
+        this.loadImages(ImageManager.PEPE.jump);
+        IntervalHub.startInterval(this.applyGravity, 1000/60);
+        IntervalHub.startInterval(this.walk.bind(this), 50);
+        IntervalHub.startInterval(this.jump.bind(this), 1000/25);
+        
     }
 
     // #region METHODS
     walk(){
-        if(this.world.keyboard.RIGHT && this.xPos < this.world.level.levelEndPos){
-            this.otherDirection = false;
-            super.walk(ImageManager.PEPE.walk);
-            this.moveRight();    
-        }
+        if(this.isAboveGround()){
+            super.playAnimation(ImageManager.PEPE.jump);
+        } else {
+            if(this.world.keyboard.RIGHT && this.xPos < this.world.level.levelEndPos){
+                super.playAnimation(ImageManager.PEPE.walk);
+                this.moveRight();    
+                // this.walking_sound.play();
+            }
 
-        if(this.world.keyboard.LEFT && this.xPos > -100){
-            this.otherDirection = true;
-            super.walk(ImageManager.PEPE.walk);
-            this.moveLeft();
+            if(this.world.keyboard.LEFT && this.xPos > -100){
+                this.otherDirection = true;
+                super.playAnimation(ImageManager.PEPE.walk);
+                this.moveLeft();
+                // this.walking_sound.play();
+            }
         }
         this.world.cameraXDir = -this.xPos + this.width;
     }
 
-    jump(){
+    // idle(){
+    //     if()
+    //     super.playAnimation(ImageManager.PEPE.idle)
+    // }
 
+    jump(){
+        if(this.world.keyboard.SPACE && !this.isAboveGround()){
+            this.ySpeed = 35;
+        }
     }
 
     throwBottle(){

@@ -19,7 +19,7 @@ export class Hen extends MovableObject{
 
     // #region METHODS
     walk(){
-        super.walk(ImageManager.HEN.walk);
+        super.playAnimation(ImageManager.HEN.walk);
     }
 
     randomizedXSpeed(){

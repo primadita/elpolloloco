@@ -1,6 +1,6 @@
 export class Keyboard{
     // #region ATTRIBUTES
-    static UP = false;
+    static SPACE = false;
     static LEFT = false;
     static RIGHT = false;
     static TOUCH_LEFT = false;
