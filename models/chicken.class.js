@@ -4,6 +4,12 @@ import { MovableObject } from "./movable-object.class.js";
 
 export class Chicken extends MovableObject{
     // #region ATTRIBUTES
+    offset = {
+        top: 5,
+        right: 5,
+        bottom: 5,
+        left: 6
+    }
     // #endregion
     
     constructor(){

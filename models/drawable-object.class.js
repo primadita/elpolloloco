@@ -1,9 +1,21 @@
+import { MovableObject } from "./movable-object.class.js";
+
 export class DrawableObject{
     // #region ATTRIBUTES
     xPos = 100;
     yPos = 200;
     width = 100;
     height = 200;
+    realX;
+    realY;
+    realWidth;
+    realHeight;
+    offset = {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
+    };
     img;
     imageCache = {};
     currentImage = 0;
@@ -15,6 +27,7 @@ export class DrawableObject{
         this.width = _width;
         this.height = _height;
         this.loadImage(_img);
+        // this.getRealFrame();
         // this.loadImages(_imgarray);
     }
 
@@ -34,6 +47,37 @@ export class DrawableObject{
             images.src = path;
             this.imageCache[path] = images;
         });
+    }
+
+    draw(ctx){
+        ctx.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+    }
+
+    drawFrame(ctx){
+        if (this instanceof MovableObject){
+            ctx.beginPath();
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "blue";
+            ctx.rect(this.xPos, this.yPos, this.width, this.height);
+            ctx.stroke();
+        }
+    }
+
+    getRealFrame(){
+        this.realX = this.xPos + this.offset.left;
+        this.realY = this.yPos + this.offset.top;
+        this.realWidth = this.width - this.offset.left - this.offset.right;
+        this.realHeight = this.height - this.offset.top - this.offset.bottom;
+    }
+
+    drawRealFrame(ctx){
+        if (this instanceof MovableObject){
+            ctx.beginPath();
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "red";
+            ctx.rect(this.realX, this.realY, this.realWidth, this.realHeight);
+            ctx.stroke();
+        }
     }
     // #endregion
 }

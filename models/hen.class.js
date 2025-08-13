@@ -6,6 +6,12 @@ export class Hen extends MovableObject{
     // #region ATTRIBUTES
     // xPos;
     // xSpeed;
+    offset = {
+        top: 5,
+        right: 2,
+        bottom: 10,
+        left: 2
+    }
     // #endregion
     
     constructor(){

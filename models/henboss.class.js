@@ -4,6 +4,12 @@ import { MovableObject } from "./movable-object.class.js";
 
 export class Henboss extends MovableObject{
     // #region ATTRIBUTES
+    offset = {
+        top: 10,
+        right: 10,
+        bottom: 10,
+        left: 10
+    }
     // #endregion
 
     constructor(){

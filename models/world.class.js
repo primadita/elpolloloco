@@ -1,13 +1,7 @@
-import { level1 } from "../levels/level1.js";
-// import { Background } from "./background.class.js";
+// import { level1 } from "../levels/level1.js";
 import { Character } from "./character.class.js";
-// import { Chicken } from "./chicken.class.js";
-// import { Cloud } from "./cloud.class.js";
-// import { LayerOne, LayerThree, LayerTwo } from "./desert.class.js";
-// import { Hen } from "./hen.class.js";
-// import { Henboss } from "./henboss.class.js";
-// import { ImageManager } from "./image-manager.class.js";
-// import { Sky } from "./sky.class.js";
+import { IntervalHub } from "./interval-hub.class.js";
+import { Level } from "./level.class.js";
 
 
 export class World{
@@ -15,7 +9,7 @@ export class World{
     canvas;
     ctx;
     character = new Character();
-    level = level1;
+    level = new Level();
     coins;
     bottles;
     keyboard;
@@ -25,10 +19,10 @@ export class World{
     constructor(canvas, keyboard){
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.character;
         this.draw();
         this.keyboard = keyboard;
         this.setWorld();
+        IntervalHub.startInterval(this.checkCollisions, 200);
     }
 
     // #region METHODS
@@ -48,11 +42,13 @@ export class World{
         if(object.otherDirection){
             this.flipImage(object);
         }
-        this.ctx.drawImage(object.img, object.xPos, object.yPos, object.width, object.height);
-
+        object.draw(this.ctx);
+        object.drawFrame(this.ctx);
+        object.getRealFrame();
+        object.drawRealFrame(this.ctx);
+        
         if(object.otherDirection){
-            this.ctx.restore();
-            object.xPos = object.xPos * -1;
+            this.restoreFlipImage(object);
         }
     }
 
@@ -72,11 +68,28 @@ export class World{
         this.ctx.scale(-1, 1);
         image.xPos = image.xPos * -1;
     }
-    // addBackgrounds(){
-    //     this.backgrounds = [
-    //         new Sky(this.canvas),
-    //         new Sky(this.canvas)
-    //     ]
-    // }
+
+    restoreFlipImage(image){
+        this.ctx.restore();
+        image.xPos = image.xPos * -1;
+    }
+
+    // drawOffset(ctx){
+    //         if(this instanceof MovableObject){
+    //             ctx.beginPath();
+    //             ctx.lineWidth = "3";
+    //             ctx.strokeStyle = "red";
+    //             ctx.rect(this.);
+    //             ctx.stroke();
+    //         }
+    //     }
+        
+    checkCollisions = () => {
+        this.level.enemies.forEach((enemy) => {
+            if(this.character.isColliding(enemy)) {
+                
+            }
+        });
+    }
     // #endregion
 }
