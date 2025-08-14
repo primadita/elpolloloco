@@ -73,21 +73,12 @@ export class World{
         this.ctx.restore();
         image.xPos = image.xPos * -1;
     }
-
-    // drawOffset(ctx){
-    //         if(this instanceof MovableObject){
-    //             ctx.beginPath();
-    //             ctx.lineWidth = "3";
-    //             ctx.strokeStyle = "red";
-    //             ctx.rect(this.);
-    //             ctx.stroke();
-    //         }
-    //     }
         
     checkCollisions = () => {
         this.level.enemies.forEach((enemy) => {
             if(this.character.isColliding(enemy)) {
-                
+                this.character.hit();
+                console.log('Collision with character, energy ', enemy, this.character.energy)
             }
         });
     }

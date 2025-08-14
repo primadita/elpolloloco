@@ -15,7 +15,8 @@ export class Level{
     // #endregion
 
     constructor(){
-        this.enemies = [new Hen(), new Hen(), new Hen(), new Chicken(), new Chicken(), new Henboss()];
+        this.enemies = [new Hen()];
+        // this.enemies = [new Hen(), new Hen(), new Hen(), new Chicken(), new Chicken(), new Henboss()];
         this.clouds = [new Cloud(canvas), new Cloud(canvas), new Cloud(canvas), new Cloud(canvas)];
         this.backgrounds = [new Sky(), new Sky(), new Sky(), 
                 new LayerThree(), new LayerTwo(), new LayerOne(), 

@@ -5,21 +5,21 @@ import { MovableObject } from "./movable-object.class.js";
 export class Henboss extends MovableObject{
     // #region ATTRIBUTES
     offset = {
-        top: 10,
-        right: 10,
-        bottom: 10,
-        left: 10
+        top: 90,
+        right: 35,
+        bottom: 40,
+        left: 30
     }
     // #endregion
 
     constructor(){
-        super({_xPos: 1600, _yPos: 45, _width: 250, _height: 400, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0});
+        super({_xPos: 1600, _yPos: 63, _width: 250, _height: 400, _img: ImageManager.HENBOSS.angry[0], _xSpeed: 10, _ySpeed: 0});
         this.loadImages(ImageManager.HENBOSS.angry);
-        IntervalHub.startInterval(this.walk.bind(this), 450);
+        IntervalHub.startInterval(this.walk, 200);
     }
 
     // #region METHODS
-    walk(){
+    walk = () => {
         super.playAnimation(ImageManager.HENBOSS.angry);
     }
     // #endregion
